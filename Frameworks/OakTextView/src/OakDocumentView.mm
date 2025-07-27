@@ -85,7 +85,8 @@ static NSString* const kFoldingsColumnIdentifier  = @"foldings";
 		[gutterScrollView.contentView addConstraint:[NSLayoutConstraint constraintWithItem:gutterView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:gutterScrollView.contentView attribute:NSLayoutAttributeRight multiplier:1.0 constant:0.0]];
 
 		gutterDividerView = OakCreateVerticalLine(OakBackgroundFillViewStyleNone);
-
+		gutterDividerView.clipsToBounds = YES;
+		
 		_statusBar = [[OTVStatusBar alloc] initWithFrame:NSZeroRect];
 		_statusBar.delegate = self;
 		_statusBar.target = self;
