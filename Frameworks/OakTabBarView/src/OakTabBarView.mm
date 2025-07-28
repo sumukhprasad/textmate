@@ -301,9 +301,30 @@ static void* kOakTabViewSelectedContext  = &kOakTabViewSelectedContext;
 		[self addConstraints:_overflowButtonConstraints];
 
 		[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[overflow]|" options:0 metrics:nil views:views]];
-		[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[close]-(4)-|" options:0 metrics:nil views:views]];
-		[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[title]-(3)-|" options:0 metrics:nil views:views]];
-		[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[overflow]|" options:0 metrics:nil views:views]];
+		
+		[self addConstraint:[NSLayoutConstraint constraintWithItem:self.closeButton
+		                                                 attribute:NSLayoutAttributeCenterY
+		                                                 relatedBy:NSLayoutRelationEqual
+		                                                    toItem:self
+		                                                 attribute:NSLayoutAttributeCenterY
+		                                                multiplier:1
+		                                                  constant:0]];
+
+		[self addConstraint:[NSLayoutConstraint constraintWithItem:self.textField
+		                                                 attribute:NSLayoutAttributeCenterY
+		                                                 relatedBy:NSLayoutRelationEqual
+		                                                    toItem:self
+		                                                 attribute:NSLayoutAttributeCenterY
+		                                                multiplier:1
+		                                                  constant:0]];
+
+		[self addConstraint:[NSLayoutConstraint constraintWithItem:self.overflowButton
+		                                                 attribute:NSLayoutAttributeCenterY
+		                                                 relatedBy:NSLayoutRelationEqual
+		                                                    toItem:self
+		                                                 attribute:NSLayoutAttributeCenterY
+		                                                multiplier:1
+		                                                  constant:0]];
 
 		[_textField setContentHuggingPriority:NSLayoutPriorityRequired forOrientation:NSLayoutConstraintOrientationHorizontal];
 		[_textField setContentCompressionResistancePriority:NSLayoutPriorityFittingSizeCompression+2 forOrientation:NSLayoutConstraintOrientationHorizontal];
